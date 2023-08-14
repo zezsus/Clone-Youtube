@@ -1,0 +1,28 @@
+.categoriesbar {
+  padding: 0 10px 0 10px;
+  font-size: 0.8rem;
+  overflow-x: scroll;
+  display: flex;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  scrollbar-width: none;
+
+  span {
+    border-radius: 20px;
+    margin: 0.5rem;
+    border: 1px solid gray;
+    white-space: nowrap;
+    padding: 0.5rem;
+    background-color: rgb(238, 238, 238);
+
+    &:hover {
+      background-color: rgb(200, 200, 200);
+    }
+
+    &:active {
+      background-color: rgb(200, 200, 200);
+    }
+  }
+}
