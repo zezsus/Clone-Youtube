@@ -1,6 +1,8 @@
 import React from "react";
 import icons from "../../until/icons";
 import "./Sidebar.scss";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/actions/authAction";
 
 const Sidebar = () => {
   const {
@@ -11,6 +13,12 @@ const Sidebar = () => {
     MdOutlineVideoLibrary,
     MdLogout,
   } = icons;
+
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <nav className="sidebar">
       <li activeClassName={true}>
@@ -36,7 +44,7 @@ const Sidebar = () => {
 
       <hr />
 
-      <li>
+      <li onClick={handleLogout}>
         <MdLogout size={24} className="me-2" />
         <span>Logout</span>
       </li>

@@ -5,7 +5,9 @@ import { Container } from "react-bootstrap";
 import HomeScreen from "./screens/homeScreen/HomeScreen";
 import LoginScreen from "./screens/loginscreen/LoginScreen";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Layout = ({ children }) => {
   return (
@@ -22,6 +24,14 @@ const Layout = ({ children }) => {
 };
 
 function App() {
+  const { accessToken, loading } = useSelector((state) => state.auth);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!loading && !loading) {
+      navigate("/login");
+    }
+  }, [accessToken, loading, navigate]);
   return (
     <div>
       <Routes>
